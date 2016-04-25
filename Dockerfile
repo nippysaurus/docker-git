@@ -2,8 +2,11 @@ FROM alpine
 
 RUN apk add --update git && rm -rf /var/cache/apk/*
 
-VOLUME /repo
+VOLUME /var/repo
+VOLUME /var/config
 
-WORKDIR /repo
+WORKDIR /var/repo
 
-ENTRYPOINT ["git"]
+ADD entrypoint.sh /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
