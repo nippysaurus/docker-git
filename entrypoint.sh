@@ -2,9 +2,8 @@
 
 set -eu
 
-if [ -e "/var/config/.gitconfig" ]; then
-  ln -s /var/config/.gitconfig /root/.gitconfig
-  echo .gitconfig linked
-fi
+echo '[user]' > /root/.gitconfig
+echo "  user = $NAME" >> /root/.gitconfig
+echo "  email = $EMAIL" >> /root/.gitconfig
 
 git "$@"
