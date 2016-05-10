@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --update git && rm -rf /var/cache/apk/*
+RUN apk add --update git openssh && rm -rf /var/cache/apk/*
 
 VOLUME /var/repo
 VOLUME /var/config
